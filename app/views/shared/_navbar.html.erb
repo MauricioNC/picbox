@@ -1,0 +1,10 @@
+<nav>
+  <div class="logo">
+  </div>
+  <div class="searcher">
+    <%= form_tag("/search", method: :get) do %>
+      <%= text_field_tag :t, {}, placeholder: "Search" %>
+      <%= submit_tag "Search", name: "" %>
+    <% end %>
+  </div>
+</nav>
