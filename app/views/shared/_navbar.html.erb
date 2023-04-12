@@ -1,10 +1,32 @@
-<nav>
-  <div class="logo">
+<nav class="nav">
+  <div class="nav__item--start">
+    <h1>LOGO</h1>
   </div>
-  <div class="searcher">
-    <%= form_tag("/search", method: :get) do %>
-      <%= text_field_tag :t, {}, placeholder: "Search" %>
-      <%= submit_tag "Search", name: "" %>
-    <% end %>
+  <div class="nav__item--center">
+    <div class="search">
+      <%= form_tag("/search", method: :get) do %>
+        <div class="search__input">
+          <%= text_field_tag :t, {}, placeholder: "Search" %>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <%= submit_tag "Search", name: "" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="nav__item--end">
+    <div class="explore">
+      <%= link_to "Explore", "" %>
+    </div>
+    <div class="post_image">
+      <%= link_to "Post iamge", "" %>
+    </div>
+    <div class="actions">
+      <%= link_to "#" do %>
+        <i class="fa-solid fa-bell"></i>
+      <% end %>
+      <%= link_to "" do %>
+        <i class="fa-solid fa-circle-user"></i>
+      <% end %>
+    </div>
   </div>
 </nav>

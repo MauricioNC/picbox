@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <% if flash.empty? %>
+      <% flash.each do |key, message| %>
+        <div class="<%= key %>_message">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
