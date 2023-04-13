@@ -3,7 +3,8 @@ class SearchController < ApplicationController
     session[:search_results] = Image.search(params[:t])
 
     if session[:search_results].empty?
-      redirect_to root_path, error: "Something went wrong, try again"
+      flash[:error] = "No records found"
+      redirect_to root_path
       return
     else
       redirect_to search_results_path(params[:t])
