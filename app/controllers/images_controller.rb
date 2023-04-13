@@ -7,6 +7,8 @@ class ImagesController < ApplicationController
 
   def new
     @image = Image.new
+    @tags = Tag.all
+
     respond_to do |format|
       format.html
       format.js
@@ -25,13 +27,17 @@ class ImagesController < ApplicationController
       format.js
     end
 
-  rescue => ez
-    render :new, error: e.message, status: :unprocessable_entity
+  rescue => e
+    pp e
+    respond_to do |format|
+      format.html { redirect_to root_path, error: e.message, status: :unprocessable_entity }
+      format.js
+    end
   end
 
   private
 
   def image_params
-    params.require(:image).permit(:title, :location)
+    params.require(:image).permit(:title, :location, tag_ids: [])
   end
 end

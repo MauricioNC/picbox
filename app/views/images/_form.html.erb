@@ -1,10 +1,19 @@
 <%= form_with(model: @image, html: { id: "new__image--form" }) do |f| %>
   <div class="modal-body">
-    <%= f.text_field :title, placeholder: "Title", id: "new__image--input" %>
-    <%= f.text_field :location, placeholder: "Location", id: "new__image--input" %>
+    <div class="new__image--input">
+      <%= f.text_field :title, placeholder: "Title", id: "new__image--input" %>
+    </div>
+    <div class="new__image--input">
+      <%= f.text_field :location, placeholder: "Location", id: "new__image--input" %>
+    </div>
+    <div class="new__image--input">
+      <%= f.select :tag_ids, @tags.map {|t| [ t.tag_name, t.id ] }, {}, multiple: true, id: "selectElement" %>
+    </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
     <%= f.submit "Create", disable_with: 'Createing...', id: "new__image--button" %>
   </div>
 <% end %>
+
+<%= javascript_pack_tag "multiple_tags.js" %>
