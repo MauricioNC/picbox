@@ -1,1 +1,3 @@
-$("#newImageForm").html("<%= j (render 'form', image: @image) %>");
+$(document).ready(function(){
+  $("#newImageForm").html("<%= j (render 'form', image: @image) %>");
+});
