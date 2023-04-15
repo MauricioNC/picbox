@@ -9,6 +9,9 @@
     <div class="new__image--input" id="tags_multi_select_container">
       <%= f.select :tag_ids, @tags.map {|t| [ t.tag_name, t.id ] }, { include_blank: false, required: false }, multiple: true, id: "selectElement", class: "tags_multi_select form-select form-control", style: "width: 100%" %>
     </div>
+    <div class="new__image--input">
+      <%= f.file_field :photo %>
+    </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

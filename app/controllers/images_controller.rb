@@ -28,7 +28,6 @@ class ImagesController < ApplicationController
     end
 
   rescue => e
-    pp e
     respond_to do |format|
       format.html { redirect_to root_path, error: e.message, status: :unprocessable_entity }
       format.js
@@ -38,6 +37,6 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:title, :location, tag_ids: [])
+    params.require(:image).permit(:title, :location, :photo, tag_ids: [])
   end
 end
