@@ -1,10 +1,6 @@
 class ImagesController < ApplicationController
   before_action :set_user
 
-  def index
-    @images = Image.all
-  end
-
   def new
     @image = Image.new
     @tags = Tag.all

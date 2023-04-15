@@ -1,0 +1,17 @@
+<% unless @images.empty? %>
+  <div class="image">
+    <% @images.each do |img|%>
+      <div>
+        <div>
+          <%= image_tag img.photo, width: 200 if img.photo.attached? %>
+        </div>
+        <div><%= img.title %></div>
+        <div>
+          <% img.tags.each do |t| %>
+            <span><%= t.tag_name %></span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
