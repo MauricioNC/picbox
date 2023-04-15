@@ -2,7 +2,9 @@
   <div class="tags">
     <ul class="tags__list">
       <% @tags.each do |t| %>
-        <li><%= t.tag_name %></li>
+        <li>
+          <%= link_to t.tag_name, search_results_path(t.tag_name) %>
+        </li>
       <% end %>
     </ul>
   </div>
