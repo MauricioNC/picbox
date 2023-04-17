@@ -1,0 +1,22 @@
+<div class="search_results">
+  <% if @search_response.respond_to?(:each) && !@search_response.empty? %>
+    <div class="image">
+      <% @search_response.each do |img|%>
+        <div>
+          <div>
+            <%= image_tag img.photo, width: 200 if img.photo.attached? %>
+          </div>
+          <div><%= img.title %></div>
+          <div><%= img.location %></div>
+          <div>
+            <% img.tags.each do |t| %>
+              <span><%= t.tag_name %></span>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <span>We couldn't find anything for <%= "#{params[:t]}" %></span>
+  <% end %>
+</div>

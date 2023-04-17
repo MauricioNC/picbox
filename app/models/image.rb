@@ -7,8 +7,8 @@ class Image < ApplicationRecord
 
   def self.search(search)
     unless search == ""
-      tag = Tag.where("tag_name LIKE ?", "%#{search}%")
-      self.joins(:images_tags).where("images_tags.tag_id": tag.ids) unless tag.empty?
+      tag = Tag.where("tag_name ILIKE ?", "%#{search[0..3]}%")
+      self.joins(:images_tags).where("images_tags.tag_id": tag.ids).distinct
     end
   end
 end

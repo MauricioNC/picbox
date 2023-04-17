@@ -3,7 +3,7 @@
     <ul class="tags__list">
       <% @tags.each do |t| %>
         <li>
-          <%= link_to t.tag_name, search_results_path(t.tag_name) %>
+          <%= link_to t.tag_name, search_path(t: t.tag_name) %>
         </li>
       <% end %>
     </ul>
