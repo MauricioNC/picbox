@@ -1,6 +1,8 @@
 class ImagesController < ApplicationController
   before_action :set_user
 
+  include ImagesConcern
+
   def new
     @image = Image.new
     @tags = Tag.all
@@ -17,6 +19,9 @@ class ImagesController < ApplicationController
     unless @image.save
       raise "Something went wrong posting your image, please try again."
     end
+
+    identifier = get_secure_identifier(12)
+    GenerateImageIdentifierJob.perform_later(@image.id, identifier)
 
     respond_to do |format|
       format.html { redirect_to root_path, success: "Image poseted successfully" }
