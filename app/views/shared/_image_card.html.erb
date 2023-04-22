@@ -4,9 +4,16 @@
       <% @images.each do |img| %>
         <div class="image-item">
           <div class="overlay">
-            <button class="like btn_like", data-image-id="<%= img.identifier %>">
-              <i></i>
-            </button>
+            <div class="like">
+              <button class="btn_like", data-image-id="<%= img.identifier %>">
+                <i></i>
+              </button>
+            </div>
+            <div class="download">
+              <%= link_to rails_blob_path(img.photo, disposition: "attachment") do%>
+                <i class="fa-solid fa-download"></i>
+              <% end %>
+            </div>
           </div>
           <div class="image-body">
             <div class="thumb">
