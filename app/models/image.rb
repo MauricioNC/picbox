@@ -2,6 +2,7 @@ class Image < ApplicationRecord
   has_one_attached :photo
 
   belongs_to :user
+  has_many :images_likes
   has_many :images_tags
   has_many :tags, through: :images_tags
 

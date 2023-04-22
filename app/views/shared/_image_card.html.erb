@@ -1,0 +1,28 @@
+<div class="image-card">
+  <div class="image-content">
+    <% unless @images.empty? %>
+      <% @images.each do |img| %>
+        <div class="image-item">
+          <div class="overlay">
+            <button class="like btn_like", data-image-id="<%= img.identifier %>">
+              <i></i>
+            </button>
+          </div>
+          <div class="image-body">
+            <div class="thumb">
+              <%= image_tag img.photo, width: 200 if img.photo.attached? %>
+            </div>
+            <span class="title"><%= img.title %></span>
+          </div>
+          <div class="image-footer">
+            <div class="image_tags">
+              <% img.tags.each do |t| %>
+                <span class="tag-item"><%= t.tag_name %></span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
