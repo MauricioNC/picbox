@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :set_user, :set_image
+  before_action :authorized, :set_user, :set_image
 
   def like
     @image.images_likes.create(user_id: @current_user.id)

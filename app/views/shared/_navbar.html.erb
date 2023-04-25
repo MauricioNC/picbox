@@ -24,9 +24,12 @@
       <%= link_to "#" do %>
         <i class="fa-solid fa-bell"></i>
       <% end %>
-      <%= link_to "" do %>
-        <i class="fa-solid fa-circle-user"></i>
-      <% end %>
+      <div class="options">
+        <%= link_to "" do %>
+          <i class="fa-solid fa-circle-user"></i>
+        <% end %>
+        <%= link_to "logout", logout_path, method: :post %>
+      </div>
     </div>
   </div>
 </nav>

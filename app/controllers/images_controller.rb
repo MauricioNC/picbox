@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_user
+  before_action :authorized
 
   include ImagesConcern
 
