@@ -1,0 +1,8 @@
+<div data-content-header>
+  <ul>
+    <li class="images"><i class="fa-regular fa-image"></i><%= link_to "Images", profile_path(@current_user.username) %></li>
+    <li class="boxes"><i class="fa-solid fa-box"></i><%= link_to "Boxes", "/my_boxes", method: :post, remote: true %></li>
+    <li class="likes"><i class="fa-solid fa-heart"></i><%= link_to "Likes", "/my_likes", method: :post, remote: true %></li>
+    <li class="downloads"><i class="fa-solid fa-download"></i><%= link_to "Downloads", "/my_downloads", method: :post, remote: true %></li>
+  </ul>
+</div>

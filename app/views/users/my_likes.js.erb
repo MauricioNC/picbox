@@ -1,0 +1,11 @@
+var likes = document.querySelector("#user-content");
+
+likes.dataset.contentType = "user-images-liked"
+
+likes.removeChild(likes.firstElementChild)
+likes.insertAdjacentHTML("beforeend", "<%= j( render :partial => 'likes_card' ) %>");
+
+var no_content_tag = document.querySelector("#no-content");
+
+if (no_content_tag)
+  no_content_tag.textContent = "You haven't liked any images yet :("
