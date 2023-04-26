@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-  resources :images, :users
+  resources :images
+  resources :users, only: %i[new create update destroy]
 
   get '/search', to: 'search#search'
   post '/like', to: 'likes#like'
@@ -13,4 +14,6 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy'
   get '/sign_up', to: 'users#new'
   post '/sign_up', to: 'users#create'
+
+  get '/:username', to: 'users#profile', as: :profile
 end

@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user
-    @current_user ||= User.first
+    @current_user ||= User.find(session[:user_id]) unless logged_in?()
   end
 end

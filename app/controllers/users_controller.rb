@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    @images = Image.where(user_id: @current_user.id)
+  end
+
   private
 
   def user_params
