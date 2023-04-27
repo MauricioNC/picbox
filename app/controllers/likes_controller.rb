@@ -14,6 +14,11 @@ class LikesController < ApplicationController
     render json: {img_liked: !img_liked}
   end
 
+  def show
+    likes = ImagesLike.where(user_id: @current_user.id)
+    @images = Image.find(likes.map { |img| img.image_id })
+  end
+
   private
 
   def set_image
