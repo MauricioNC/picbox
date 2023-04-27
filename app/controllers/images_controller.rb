@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   before_action :authorized
 
-  include ImagesConcern
+  include ApplicationConcern
 
   def new
     @image = Image.new
@@ -18,7 +18,7 @@ class ImagesController < ApplicationController
 
     if @image.save
       identifier = get_secure_identifier(12)
-      GenerateImageIdentifierJob.perform_later(@image.id, identifier)
+      GenerateIdentifierJob.perform_later(@image.id, identifier, "image")
 
       redirect_to root_path, success: "Image poseted successfully"
     else

@@ -1,6 +1,6 @@
 require 'securerandom'
 
-module ImagesConcern
+module ApplicationConcern
   extend ActiveSupport::Concern
 
   def get_secure_identifier(n)
