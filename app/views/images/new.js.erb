@@ -1,3 +1,4 @@
 $(document).ready(function(){
-  $("#newImageForm").html("<%= j (render 'form', image: @image) %>");
+  $("#newFormModalLabel").html("Post a new image");
+  $("#newForm").html("<%= j (render 'form', image: @image) %>");
 });

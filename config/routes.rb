@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :images
+  resources :boxes, only: %i[new update destroy]
   resources :users, only: %i[new create update destroy]
 
   get '/search', to: 'search#search'
@@ -16,7 +17,9 @@ Rails.application.routes.draw do
   post '/sign_up', to: 'users#create'
 
   get '/:username', to: 'users#profile', as: :profile
-  get '/:username/boxes', to: 'boxes#show', as: :boxes
-  get '/:username/likes', to: 'likes#show', as: :likes
-  get '/:username/downloads', to: 'downloads#show', as: :downloads
+  get '/:username/boxes', to: 'boxes#show', as: :show_boxes
+  get '/:username/likes', to: 'likes#show', as: :show_likes
+  get '/:username/downloads', to: 'downloads#show', as: :show_downloads
+
+  post '/boxes', to: 'boxes#create'
 end

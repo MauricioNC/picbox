@@ -1,8 +1,8 @@
 <div data-content-header>
   <ul>
     <li class="images"><i class="fa-regular fa-image"></i><%= link_to "Images", profile_path(@current_user.username) %></li>
-    <li class="boxes"><i class="fa-solid fa-box"></i><%= link_to "Boxes", boxes_path(@current_user.username) %></li>
-    <li class="likes"><i class="fa-solid fa-heart"></i><%= link_to "Likes", likes_path(@current_user.username) %></li>
-    <li class="downloads"><i class="fa-solid fa-download"></i><%= link_to "Downloads", downloads_path(@current_user.username) %></li>
+    <li class="boxes"><i class="fa-solid fa-box"></i><%= link_to "Boxes", show_boxes_path(@current_user.username) %></li>
+    <li class="likes"><i class="fa-solid fa-heart"></i><%= link_to "Likes", show_likes_path(@current_user.username) %></li>
+    <li class="downloads"><i class="fa-solid fa-download"></i><%= link_to "Downloads", show_downloads_path(@current_user.username) %></li>
   </ul>
 </div>

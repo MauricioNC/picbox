@@ -1,0 +1,30 @@
+<%= form_with(model: @box, html: { id: "new__box--form" }) do |f| %>
+  <div class="modal-body">
+    <div class="new__box--input">
+      <%= f.text_field :box_name, placeholder: "Box name", id: "new__box--input" %>
+    </div>
+    <div class="new__box--input">
+      <%= f.text_field :description, placeholder: "Description", id: "new__box--input" %>
+    </div>
+    <div class="new__box--input" id="tags_multi_select_container">
+      <%= f.select :tag_ids, @tags.map {|t| [ t.tag_name, t.id ] }, { include_blank: false, required: false }, multiple: true, id: "selectElement", class: "tags_multi_select form-select form-control", style: "width: 100%" %>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <%= f.submit "Create", disable_with: 'Createing...', id: "new__box--button" %>
+  </div>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+    $('.tags_multi_select').select2({
+      theme: 'bootstrap',
+      placeholder: {
+        id: '-1',
+        text: "Add tags to your box",
+      },
+      dropdownParent: $('#tags_multi_select_container').parent()
+    });
+  });
+</script>
