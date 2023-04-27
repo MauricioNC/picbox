@@ -19,33 +19,18 @@ class UsersController < ApplicationController
     @images = Image.where(user_id: @current_user.id)
   end
 
-  def my_boxes
+  def boxes
     @boxes = Box.where(user_id: @current_user.id)
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
-  def my_likes
+  def likes
     likes = ImagesLike.where(user_id: @current_user.id)
     @images = Image.find(likes.map { |img| img.image_id })
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
-  def my_downloads
+  def downloads
     downloads = ImagesDownload.where(user_id: @current_user.id)
     @images = Image.find(downloads.map { |img| img.image_id })
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   private

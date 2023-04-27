@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post '/sign_up', to: 'users#create'
 
   get '/:username', to: 'users#profile', as: :profile
-  post '/my_boxes', to: 'users#my_boxes'
-  post '/my_likes', to: 'users#my_likes'
-  post '/my_downloads', to: 'users#my_downloads'
+  get '/:username/boxes', to: 'users#boxes', as: :boxes
+  get '/:username/likes', to: 'users#likes', as: :likes
+  get '/:username/downloads', to: 'users#downloads', as: :downloads
 end
