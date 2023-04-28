@@ -1,0 +1,26 @@
+<div data-content-type="user-images" id="user-content">
+  <div class="boxes-container">
+    <div class="boxes__card">
+      <% unless @boxes.empty?%>
+        <% @boxes.each do |bx|%>
+          <div class="box-item">
+            <div class="box-body">
+              <div><%= bx.box_name %></div>
+              <div><%= bx.description %></div>
+            </div>
+            <div class="box-footer">
+              <div class="box_tags">
+                <% bx.tags.each do |bt| %>
+                  <span class="tag-item"><%= bt.tag_name %></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <span>You haven't created any boxes yet :(</span>
+        <%= link_to "Create a new box", new_box_path, data: { bs_toggle: 'modal', bs_target: '#newFormModal', remote: :true } %>
+      <% end %>
+    </div>
+  </div>
+</div>

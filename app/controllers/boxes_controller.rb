@@ -30,6 +30,15 @@ class BoxesController < ApplicationController
     @boxes = Box.where(user_id: @current_user.id)
   end
 
+  def modal_boxes
+    @boxes = Box.all
+
+    respond_to do |format|
+      format.html {}
+      format.js
+    end
+  end
+
   private
 
   def box_params

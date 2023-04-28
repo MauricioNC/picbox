@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   get '/:username/downloads', to: 'downloads#show', as: :show_downloads
 
   post '/boxes', to: 'boxes#create'
+
+  post '/modal_boxes', to: 'boxes#modal_boxes', as: :modal_boxes
 end
