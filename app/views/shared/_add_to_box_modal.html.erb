@@ -5,7 +5,9 @@
         <h1 class="modal-title fs-5" id="listBoxesModalLabel"></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div id='new_box_modal'>Create a new box</div>
+      <div id='create_box'>
+        <%= link_to "Create a new box", new_box_path, data: { bs_toggle: 'modal', bs_target: '#newFormModal', remote: :true } %>
+      </div>
       <div id="boxes_list"></div>
     </div>
   </div>
