@@ -4,20 +4,22 @@
       <% @images.each do |img| %>
         <div class="image-item">
           <div class="overlay">
-            <div class="like">
-              <button class="btn_like", data-image-id="<%= img.identifier %>">
-                <i></i>
-              </button>
-            </div>
-            <div class="download">
-              <%= link_to rails_blob_path(img.photo, disposition: "attachment") do%>
-                <i class="fa-solid fa-download"></i>
-              <% end %>
-            </div>
-            <div class="add_to_box">
-              <%= link_to modal_boxes_path, method: :post, data: { image_id: img.identifier, bs_toggle: 'modal', bs_target: '#listBoxesModal' }, remote: true do%>
-                <i class="fa-solid fa-plus"></i>
-              <% end%>
+            <div class="actions">
+              <ul>
+                <li>
+                  <button class="btn_like", data-image-id="<%= img.identifier %>"><i></i></button>
+                </li>
+                <li>
+                  <%= link_to rails_blob_path(img.photo, disposition: "attachment") do%>
+                    <i class="fa-solid fa-download"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to modal_boxes_path, method: :post, data: { image_id: img.identifier, bs_toggle: 'modal', bs_target: '#listBoxesModal',  box_image: !@current_user.boxes_images.where(image_id: img.id).empty? }, remote: true do%>
+                    <i class="fa-solid fa-plus"></i>
+                  <% end%>
+                </li>
+              </ul>
             </div>
           </div>
           <div class="image-body">

@@ -1,0 +1,26 @@
+<div class="boxes__card">
+  <% unless @boxes.empty?%>
+    <% @boxes.each do |bx|%>
+      <div class="box-item" data-identifier="<%= bx.identifier %>" data-box-image="">
+        <div class="actions">
+          <div class="add"><i class="fa-solid fa-plus"></i></div>
+          <div class="remove"><i class="fa-solid fa-minus"></i></div>
+        </div>
+        <div class="box-body">
+          <div><%= bx.box_name %></div>
+          <div><%= bx.description %></div>
+        </div>
+        <div class="box-footer">
+          <div class="box_tags">
+            <% bx.tags.each do |bt| %>
+              <span class="tag-item"><%= bt.tag_name %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <span>You haven't created any boxes yet :(</span>
+    <%= link_to "Create a new box", new_box_path, data: { bs_toggle: 'modal', bs_target: '#newFormModal', remote: :true } %>
+  <% end %>
+</div>

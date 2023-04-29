@@ -3,7 +3,7 @@
     <div class="boxes__card">
       <% unless @boxes.empty?%>
         <% @boxes.each do |bx|%>
-          <div class="box-item">
+          <div class="box-item" data-identifier="<%= bx.identifier %>" data-box-image="">
             <div class="box-body">
               <div><%= bx.box_name %></div>
               <div><%= bx.description %></div>

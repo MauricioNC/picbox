@@ -39,6 +39,48 @@ class BoxesController < ApplicationController
     end
   end
 
+  def add_image
+    image = Image.find_by_identifier(params[:image_identifier])
+    box = Box.find_by_identifier(params[:box_identifier])
+
+    if box && image
+      if @current_user.boxes_images.create(image_id: image.id, box_id: box.id)
+        render json: {response: true}
+        return
+      end
+    end
+
+    render json: {response: false}
+  end
+
+  def remove_image
+    image = Image.find_by_identifier(params[:image_identifier])
+    box = Box.find_by_identifier(params[:box_identifier])
+
+    if box && image
+      if @current_user.boxes_images.where(image_id: image.id, box_id: box.id).first.delete
+        render json: {response: true}
+        return
+      end
+    end
+
+    render json: {response: false}
+  end
+
+  def image_in_box
+    image = Image.find_by_identifier(params[:image_identifier])
+    box = Box.find_by_identifier(params[:box_identifier])
+
+    if image && box
+      if BoxesImage.where(image_id: image.id).where(box_id: box.id).empty?
+        render json: {response: false}
+        return
+      end
+    end
+
+    render json: {response: true}
+  end
+
   private
 
   def box_params

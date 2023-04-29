@@ -13,6 +13,7 @@ import "@fortawesome/fontawesome-free/css/all"
 import "../stylesheets/application"
 import "../select2/select2.min"
 import "../customs/images_likes"
+import "../customs/create_boxes"
 
 var jQuery = require('jquery')
 
