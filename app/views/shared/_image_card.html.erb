@@ -10,7 +10,7 @@
                   <button class="btn_like", data-image-id="<%= img.identifier %>"><i></i></button>
                 </li>
                 <li>
-                  <%= link_to rails_blob_path(img.photo, disposition: "attachment") do%>
+                  <%= link_to rails_blob_path(img.photo, disposition: "attachment"), data: {image_id: img.identifier}, class: "download-btn" do%>
                     <i class="fa-solid fa-download"></i>
                   <% end %>
                 </li>

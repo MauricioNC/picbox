@@ -83,3 +83,19 @@ function setBtnRemove(element)
   element.previousElementSibling.style.display = "block"
   element.style.display = "none"
 }
+
+
+export function addImageToDownload(img_id)
+{
+  Rails.ajax({
+    url: "/download",
+    type: "POST",
+    data: `image_identifier=${img_id}`,
+    success: (data) => {
+      if(data.response)
+        alert("Image downloaded successfully");
+      else
+        alert("Something went wrong, try again");
+    }
+  });
+}

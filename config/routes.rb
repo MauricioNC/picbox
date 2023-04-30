@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   delete '/remove_image', to: 'boxes#remove_image'
 
   post '/image_in_box', to: 'boxes#image_in_box'
+
+  post '/download', to: 'downloads#download'
 end
