@@ -7,6 +7,7 @@
             <div class="box-body">
               <div><%= bx.box_name %></div>
               <div><%= bx.description %></div>
+              <div><%= link_to "View", "/boxes/#{bx.identifier}/#{bx.box_name}" %></div>
             </div>
             <div class="box-footer">
               <div class="box_tags">

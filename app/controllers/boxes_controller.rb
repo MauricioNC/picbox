@@ -81,6 +81,13 @@ class BoxesController < ApplicationController
     render json: {response: true}
   end
 
+  def show_images_in_box
+    box = Box.find_by_identifier(params[:identifier])
+    img_ids = BoxesImage.where(box_id: box.id).map { |item| item.image_id }
+
+    @images = Image.where(id: img_ids) if box
+  end
+
   private
 
   def box_params

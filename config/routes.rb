@@ -26,8 +26,9 @@ Rails.application.routes.draw do
   post '/modal_boxes', to: 'boxes#modal_boxes', as: :modal_boxes
   post '/add_image', to: 'boxes#add_image'
   delete '/remove_image', to: 'boxes#remove_image'
-
   post '/image_in_box', to: 'boxes#image_in_box'
+  get '/boxes/:identifier/:box_name', to: 'boxes#show_images_in_box'
 
   post '/download', to: 'downloads#download'
+
 end
