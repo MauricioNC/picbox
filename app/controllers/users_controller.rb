@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authorized
+
   def new
     redirect_to root_path unless session[:user_id].nil?
     @user = User.new
