@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create update destroy]
 
   get '/search', to: 'search#search'
+  get '/explore', to: 'images#index'
   post '/like', to: 'likes#like'
   post '/unlike', to: 'likes#unlike'
   post '/image_liked', to: 'likes#image_liked'
@@ -16,11 +17,6 @@ Rails.application.routes.draw do
   get '/sign_up', to: 'users#new'
   post '/sign_up', to: 'users#create'
 
-  get '/:username', to: 'users#profile', as: :profile
-  get '/:username/boxes', to: 'boxes#show', as: :show_boxes
-  get '/:username/likes', to: 'likes#show', as: :show_likes
-  get '/:username/downloads', to: 'downloads#show', as: :show_downloads
-
   post '/boxes', to: 'boxes#create'
 
   post '/modal_boxes', to: 'boxes#modal_boxes', as: :modal_boxes
@@ -30,5 +26,10 @@ Rails.application.routes.draw do
   get '/boxes/:identifier/:box_name', to: 'boxes#show_images_in_box'
 
   post '/download', to: 'downloads#download'
+
+  get '/:username', to: 'users#profile', as: :profile
+  get '/:username/boxes', to: 'boxes#show', as: :show_boxes
+  get '/:username/likes', to: 'likes#show', as: :show_likes
+  get '/:username/downloads', to: 'downloads#show', as: :show_downloads
 
 end

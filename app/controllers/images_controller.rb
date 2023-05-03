@@ -3,6 +3,11 @@ class ImagesController < ApplicationController
 
   include ApplicationConcern
 
+  def index
+    @images = Image.all
+    @boxes = Box.limit(20)
+  end
+
   def new
     @image = Image.new
     @tags = Tag.all

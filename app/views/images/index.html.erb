@@ -1,0 +1,23 @@
+<h2>You may also want to see popular boxes</h2>
+<div class="boxes_carousel">
+  <% unless @boxes.empty?%>
+    <% @boxes.each do |bx|%>
+      <div class="box-item">
+        <div class="box-body">
+          <div><%= bx.box_name %></div>
+          <div><%= bx.description %></div>
+          <div><%= link_to "View", "/boxes/#{bx.identifier}/#{bx.box_name}" %></div>
+        </div>
+        <div class="box-footer">
+          <div class="box_tags">
+            <% bx.tags.each do |bt| %>
+              <span class="tag-item"><%= bt.tag_name %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render "shared/image_card" %>
