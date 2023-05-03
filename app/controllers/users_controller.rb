@@ -33,6 +33,15 @@ class UsersController < ApplicationController
   def notifications_settings
   end
 
+  def update
+    @current_user.update(user_params)
+
+    flash[:success] = "Information updated successfully"
+    render :profile_settings, status: :ok
+  rescue
+    redirect_to profile_settings_path, error: "Something went wrong, try again"
+  end
+
   private
 
   def user_params

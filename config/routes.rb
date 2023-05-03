@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :images
   resources :boxes, only: %i[new update destroy]
-  resources :users, only: %i[new create update destroy]
+  resources :users, only: %i[new create destroy]
 
   get '/search', to: 'search#search'
   get '/explore', to: 'images#index'
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post '/download', to: 'downloads#download'
 
   get '/profile_settings', to: 'users#profile_settings', as: :profile_settings
+  patch '/profile_settings', to: 'users#update'
   get '/account_settings', to: 'users#account_settings', as: :account_settings
   get '/apearance_settings', to: 'users#apearance_settings', as: :apearance_settings
   get '/notifications_settings', to: 'users#notifications_settings', as: :notifications_settings

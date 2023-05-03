@@ -6,7 +6,7 @@
     <%# link_to "Change avatar", update_avatr_path, method: :post %>
   </div>
   <div class="form_update">
-    <%= form_with model: @current_user, url: sign_up_path do |f| %>
+    <%= form_with model: @current_user, url: "/profile_settings", method: :patch do |f| %>
       <% if @current_user.errors.any? %>
         <div style="color: red">
           <ul>
