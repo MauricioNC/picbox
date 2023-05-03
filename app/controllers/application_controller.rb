@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_user
+  before_action :set_user, :authorized
 
   add_flash_types :success, :error, :notice
 

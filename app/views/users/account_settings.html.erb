@@ -5,7 +5,7 @@
     <%# show avatar profile %>
   </div>
   <div class="form_update">
-    <%= form_with model: @current_user, url: sign_up_path do |f| %>
+    <%= form_with model: @current_user, url: "/account_settings" do |f| %>
       <% if @current_user.errors.any? %>
         <div style="color: red">
           <ul>
@@ -16,14 +16,14 @@
         </div>
       <% end %>
       <%= f.text_field :email, placeholder: "Email" %>
-      <%= f.text_field :password, placeholder: "Password" %>
-      <%= f.text_field :password_confirmation, placeholder: "Confirm password" %>
+      <%= f.password_field :password, placeholder: "Password" %>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
       <%= f.submit "Save" %>
     <% end %>
   </div>
 
   <div class="danger_zone">
     <h4>Danger zone</h4>
-    <%= button_to "Delete account", "", data: {confirm: "Are you sure?"} %>
+    <%= button_to "Delete account", "/delete_account", method: :delete, data: {confirm: "Are you sure you want to delete your account?, you will lose all your images!"} %>
   </div>
 </div>

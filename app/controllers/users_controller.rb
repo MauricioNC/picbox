@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorized
+  skip_before_action :authorized, only: %i[new create]
 
   def new
     redirect_to root_path unless session[:user_id].nil?
@@ -40,6 +40,14 @@ class UsersController < ApplicationController
     render :profile_settings, status: :ok
   rescue
     redirect_to profile_settings_path, error: "Something went wrong, try again"
+  end
+
+  def delete_account
+    DeleteAccountJob.perform_later(@current_user.id)
+
+    flash[:success] = "Your account has beend deleted."
+    session[:user_id] = nil
+    redirect_to login_path
   end
 
   private
