@@ -25,11 +25,15 @@
         <i class="fa-solid fa-bell"></i>
       <% end %>
       <div class="options_menu">
-        <%= link_to "" do %>
-          <i class="fa-solid fa-circle-user"></i>
-        <% end %>
-        <%= link_to "My profile", profile_path(@current_user.username) %>
-        <%= link_to "logout", logout_path, method: :post %>
+        <div class="avatar">
+          <%= link_to "" do %>
+            <i class="fa-solid fa-circle-user"></i>
+          <% end %>
+        </div>
+        <div class="avatar_dropdown">
+          <%= link_to "My profile", profile_path(@current_user.username) %>
+          <%= link_to "logout", logout_path, method: :post %>
+        </div>
       </div>
     </div>
   </div>
