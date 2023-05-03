@@ -1,1 +1,12 @@
 <%= render "sidebar_settings" %>
+
+<div class="apearance_settings">
+  <div class="light_theme">
+    <i class="fa-regular fa-circle"></i>
+    <%= button_to "Light", "", method: :post, remote: true %>
+  </div>
+  <div class="dark_theme">
+    <i class="fa-solid fa-circle"></i>
+    <%= button_to "Dark", "", method: :post, remote: true %>
+  </div>
+</div>

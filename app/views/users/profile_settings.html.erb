@@ -1,1 +1,26 @@
 <%= render "sidebar_settings" %>
+
+<div class="settings-container">
+  <div class="avatar_profile">
+    <%# show avatar profile %>
+    <%# link_to "Change avatar", update_avatr_path, method: :post %>
+  </div>
+  <div class="form_update">
+    <%= form_with model: @current_user, url: sign_up_path do |f| %>
+      <% if @current_user.errors.any? %>
+        <div style="color: red">
+          <ul>
+            <% @current_user.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.text_field :full_name, placeholder: "Full name" %>
+      <%= f.text_field :username, placeholder: "Username" %>
+      <%= f.text_field :location, placeholder: "Location" %>
+      <%= f.text_field :phone_number, placeholder: "Phone number" %>
+      <%= f.submit "Save" %>
+    <% end %>
+  </div>
+</div>

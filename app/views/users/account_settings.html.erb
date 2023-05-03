@@ -1,1 +1,29 @@
 <%= render "sidebar_settings" %>
+
+<div class="account_settings">
+  <div class="avatar_profile">
+    <%# show avatar profile %>
+  </div>
+  <div class="form_update">
+    <%= form_with model: @current_user, url: sign_up_path do |f| %>
+      <% if @current_user.errors.any? %>
+        <div style="color: red">
+          <ul>
+            <% @current_user.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.text_field :email, placeholder: "Email" %>
+      <%= f.text_field :password, placeholder: "Password" %>
+      <%= f.text_field :password_confirmation, placeholder: "Confirm password" %>
+      <%= f.submit "Save" %>
+    <% end %>
+  </div>
+
+  <div class="danger_zone">
+    <h4>Danger zone</h4>
+    <%= button_to "Delete account", "", data: {confirm: "Are you sure?"} %>
+  </div>
+</div>
