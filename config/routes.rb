@@ -27,9 +27,13 @@ Rails.application.routes.draw do
 
   post '/download', to: 'downloads#download'
 
+  get '/profile_settings', to: 'users#profile_settings', as: :profile_settings
+  get '/account_settings', to: 'users#account_settings', as: :account_settings
+  get '/apearance_settings', to: 'users#apearance_settings', as: :apearance_settings
+  get '/notifications_settings', to: 'users#notifications_settings', as: :notifications_settings
+
   get '/:username', to: 'users#profile', as: :profile
   get '/:username/boxes', to: 'boxes#show', as: :show_boxes
   get '/:username/likes', to: 'likes#show', as: :show_likes
   get '/:username/downloads', to: 'downloads#show', as: :show_downloads
-
 end

@@ -21,6 +21,18 @@ class UsersController < ApplicationController
     @images = Image.where(user_id: @current_user.id)
   end
 
+  def profile_settings
+  end
+
+  def account_settings
+  end
+
+  def apearance_settings
+  end
+
+  def notifications_settings
+  end
+
   private
 
   def user_params

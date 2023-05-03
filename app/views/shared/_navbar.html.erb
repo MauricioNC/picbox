@@ -32,6 +32,7 @@
         </div>
         <div class="avatar_dropdown">
           <%= link_to "My profile", profile_path(@current_user.username) %>
+          <%= link_to "Settings", profile_settings_path %>
           <%= link_to "logout", logout_path, method: :post %>
         </div>
       </div>
