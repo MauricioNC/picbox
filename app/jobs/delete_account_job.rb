@@ -6,7 +6,7 @@ class DeleteAccountJob < ApplicationJob
     if user
       self.delete_boxes(user)
       self.delete_images(user)
-      User.find(user.id).delete
+      user.delete
     end
   end
 
