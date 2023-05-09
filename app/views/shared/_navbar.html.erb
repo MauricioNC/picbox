@@ -1,41 +1,42 @@
-<nav class="nav">
-  <div class="nav__item--start">
-    <h1>LOGO</h1>
+<nav class="nav nav__container">
+  <h1 class="logo">LOGO</h1>
+  <div class="responsive_icons">
+    <i class="fa-solid fa-bars nav__hamburguer"></i>
+    <i class="fa-solid fa-xmark nav__close"></i>
   </div>
-  <div class="nav__item--center">
-    <div class="search">
-      <%= form_tag("/search", method: :get) do %>
-        <div class="search__input">
-          <%= text_field_tag :t, {}, placeholder: "Search" %>
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <%= submit_tag "Search", name: "" %>
-      <% end %>
-    </div>
+  <div class="search-icon">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </div>
-  <div class="nav__item--end">
-    <div class="explore">
-      <%= link_to "Explore", "/explore" %>
-    </div>
-    <div class="post_image">
-      <%= link_to "Post iamge", new_image_path, data: { bs_toggle: 'modal', bs_target: '#newFormModal', remote: :true } %>
-    </div>
-    <div class="actions">
-      <%= link_to "#" do %>
+  <div class="search__bar">
+    <%= form_tag("/search", method: :get) do %>
+      <i class="fa-solid fa-arrow-right"></i>
+      <%= text_field_tag :t, {}, placeholder: "Search" %>
+    <% end %>
+  </div>
+
+  <ul class="nav__links">
+    <li class="explore nav__item">
+      <%= link_to "Explore", "/explore", class: "nav__link" %>
+    </li>
+    <li class="post_image nav__item">
+      <%= link_to "Post iamge", new_image_path, class: "nav__link", data: { bs_toggle: 'modal', bs_target: '#newFormModal', remote: :true } %>
+    </li>
+    <li class="notifications nav__item">
+      <%= link_to "#", class: "bell-icon nav__link" do %>
         <i class="fa-solid fa-bell"></i>
       <% end %>
-      <div class="options_menu">
-        <div class="avatar">
-          <%= link_to "" do %>
-            <i class="fa-solid fa-circle-user"></i>
-          <% end %>
-        </div>
-        <div class="avatar_dropdown">
-          <%= link_to "My profile", profile_path(@current_user.username) %>
-          <%= link_to "Settings", profile_settings_path %>
-          <%= link_to "logout", logout_path, method: :post %>
-        </div>
+    </li>
+    <li class="dropdown__menu nav__item">
+      <div class="avatar">
+        <%= link_to "", class: "user-icon nav__link" do %>
+          <i class="fa-solid fa-circle-user"></i>
+        <% end %>
+        <ul class="dropdown__links">
+          <li class="dropdown__item"><%= link_to "My profile", profile_path(@current_user.username), class: " nav__link" %></li>
+          <li class="dropdown__item"><%= link_to "Settings", profile_settings_path, class: " nav__link" %></li>
+          <li class="dropdown__item"><%= link_to "logout", logout_path, method: :post, class: " nav__link" %></li>
+        </ul>
       </div>
-    </div>
-  </div>
+    </li>
+  </ul>
 </nav>

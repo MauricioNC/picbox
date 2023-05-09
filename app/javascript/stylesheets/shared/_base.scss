@@ -1,9 +1,14 @@
-* {
-  box-sizing: border-box;
+* { box-sizing: border-box; }
+
+body, p, h1, h2, h3, h4, h5, h6, a, ul, li, span, div, form,
+input, button, textarea, main, article, aside, header, footer {
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+}
+
+body {
   background-color: $bg-light;
+  font-family: 'Montserrat', sans-serif;
 }
 
 p, a, span {
