@@ -31,12 +31,12 @@
         <%= link_to "", class: "user-icon nav__link" do %>
           <i class="fa-solid fa-circle-user"></i>
         <% end %>
-        <ul class="dropdown__links">
-          <li class="dropdown__item"><%= link_to "My profile", profile_path(@current_user.username), class: " nav__link" %></li>
-          <li class="dropdown__item"><%= link_to "Settings", profile_settings_path, class: " nav__link" %></li>
-          <li class="dropdown__item"><%= link_to "logout", logout_path, method: :post, class: " nav__link" %></li>
-        </ul>
       </div>
+      <ul class="dropdown__links">
+        <li class="dropdown__item"><%= link_to "My profile", profile_path(@current_user.username), class: " nav__link" %></li>
+        <li class="dropdown__item"><%= link_to "Settings", profile_settings_path, class: " nav__link" %></li>
+        <li class="dropdown__item"><%= link_to "logout", logout_path, method: :post, class: " nav__link" %></li>
+      </ul>
     </li>
   </ul>
 </nav>
