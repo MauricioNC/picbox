@@ -115,9 +115,7 @@
   #container {
     font-size: $fs-md;
 
-    h1 {
-      font-size: $fs-l;
-    }
+    h1 { font-size: $fs-l; }
   }
 
   .nav {
@@ -139,7 +137,6 @@
       grid-column: 2/3;
       grid-row: 1/2;
       width: 100%;
-      background-color: crimson;
       padding: 0;
       position: relative;
       transform: translate(0);
@@ -155,7 +152,6 @@
 
         i { display: none; }
       }
-
     }
 
     .search-icon {
@@ -170,6 +166,78 @@
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
       z-index: 2;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  #container {
+    h1 { font-size: $fs-xl; }
+  }
+
+  .nav {
+    position: relative;
+    display: grid;
+    grid-template-columns: 100px 1fr 500px;
+    align-items: center;
+    justify-content: space-around;
+
+    .logo {
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+
+    .responsive_icons { display: none; }
+    .search-icon { display: none; }
+
+    .search__bar {
+      position: relative;
+      grid-column: 2/3;
+      grid-row: 1/2;
+      width: unset;
+      padding: 0;
+
+      form {
+        position: relative;
+
+        input {
+          width: 100%;
+          border: none
+        }
+
+        i { display: none; }
+      }
+    }
+
+    &__links {
+      grid-column: 3/-1;
+      grid-row: 1/2;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      transform: translate(0);
+
+      .notifications {
+        display: block;
+
+        .fa-bell { font-size: $fs-nm; }
+      }
+
+      .dropdown__menu {
+        position: relative;
+
+        .avatar {
+          .user-icon { display: none; }
+        }
+
+        .dropdown__links {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          gap: 1rem;
+        }
+      }
     }
   }
 }
