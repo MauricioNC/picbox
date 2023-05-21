@@ -1,7 +1,7 @@
 * { box-sizing: border-box; }
 
-body, p, h1, h2, h3, h4, h5, h6, a, ul, li, span, div, form,
-input, button, textarea, main, article, aside, header, footer {
+p, h1, h2, h3, h4, h5, h6, a, ul, li, span, form,
+input, button, textarea, article, aside, header, footer {
   padding: 0;
   margin: 0;
 }
@@ -16,6 +16,7 @@ main {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 p, a, span {

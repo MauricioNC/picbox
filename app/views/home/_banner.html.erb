@@ -1,14 +1,14 @@
-<div class="banner">
-  <div class="tags">
-    <ul class="tags__list">
-      <% @tags.each do |t| %>
-        <li>
-          <%= link_to t.tag_name, search_path(t: t.tag_name) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<div class="tags container-fluid p-2">
+  <ul class="tags__list text-center row">
+    <% @tags.each do |t| %>
+      <li class="col-3 col-sm-3 col-md-3 col-lg-2 col-xl-1">
+        <%= link_to t.tag_name, search_path(t: t.tag_name), class: "" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="banner container-fluid p-0 m-0">
   <div class="banner__background">
-    <% # image_tag here goes the background image  %>
+    <%= image_tag getRandomImage(), class: "img-fluid" %>
   </div>
 </div>
