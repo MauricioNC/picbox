@@ -16,7 +16,6 @@
     background-color: crimson;
     border-radius: 3px;
     display: none;
-    transition: display 0.3s;
   }
 
   &:hover::-webkit-scrollbar-thumb {
@@ -38,14 +37,15 @@
 }
 
 .banner {
+  background-color: $bg-dark;
 
   &__background {
     width: 100%;
 
     img {
       object-fit: cover;
-      width:100%;
-      height: 200px;
+      width: 100%;
+      height: 35rem;
     }
   }
 }
